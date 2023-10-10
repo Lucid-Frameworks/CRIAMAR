@@ -1,13 +1,19 @@
-import React from "react";
+import React, { Profiler } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
+const onRender = (id, phase, actualDuration) => {
+  console.log(`[React Profiler] ${id} took ${actualDuration}ms to render during ${phase}.`);
+};
+
 root.render(
   <React.StrictMode>
-    <App />
+    <Profiler id="App" onRender={onRender}>
+      <App />
+    </Profiler>
   </React.StrictMode>
 );
 
@@ -16,11 +22,6 @@ if (import.meta.webpackHot) {
   import.meta.webpackHot.accept(() => {
     console.log("HMR: Module updated successfully!");
   });
-}
-
-// Added performance monitoring with React Profiler
-if (process.env.NODE_ENV === "development") {
-  console.log("React Profiler is enabled for performance monitoring.");
 }
 
 // Register service worker for PWA support
