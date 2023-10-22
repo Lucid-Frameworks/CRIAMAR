@@ -29,7 +29,6 @@ module.exports = {
     require("@tailwindcss/typography"), // Improves typography styles
     require("@tailwindcss/aspect-ratio"), // Adds aspect ratio utilities
     require("@tailwindcss/line-clamp"), // Enables text truncation
-    require("@tailwindcss/animations"), // Adds utility classes for animations
-    require("@tailwindcss/gradients"), // Added for better gradient utilities
+    require("tailwindcss-animate"), // Replaced invalid animation plugin
   ],
 };
