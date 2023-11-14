@@ -1,23 +1,27 @@
-import React, { useState } from "react";
-
 export function SentimentAnalysis() {
   const [token, setToken] = useState("");
   const [sentiment, setSentiment] = useState(null);
-  const [loading, setLoading] = useState(false); // Added loading state
+  const [loading, setLoading] = useState(false);
 
   const analyzeSentiment = () => {
     if (!token) {
-      alert("Please enter a token name to analyze."); // Added alert for empty token
+      alert("Please enter a token name to analyze.");
       return;
     }
 
-    setLoading(true); // Set loading state to true while analyzing
+    setLoading(true);
     const sentiments = ["Positive", "Neutral", "Negative"];
-    setTimeout(() => { // Simulate API call delay
+    setTimeout(() => {
       const randomSentiment = sentiments[Math.floor(Math.random() * sentiments.length)];
       setSentiment(randomSentiment);
-      setLoading(false); // Stop loading once analysis is done
+      setLoading(false);
     }, 1500);
+  };
+
+  const sentimentColors = {
+    Positive: "text-green-500",
+    Neutral: "text-yellow-500",
+    Negative: "text-red-500",
   };
 
   return (
@@ -33,12 +37,14 @@ export function SentimentAnalysis() {
       <button
         onClick={analyzeSentiment}
         className={`ml-2 p-2 rounded-md ${loading ? 'bg-gray-400' : 'bg-blue-500 hover:bg-blue-700'}`}
-        disabled={loading} // Disable button while loading
+        disabled={loading}
       >
         {loading ? "Analyzing..." : "Analyze"}
       </button>
       {sentiment && (
-        <div className="mt-4 text-xl font-bold">Sentiment: {sentiment}</div>
+        <div className={`mt-4 text-xl font-bold ${sentimentColors[sentiment]}`}>
+          Sentiment: {sentiment}
+        </div>
       )}
     </div>
   );
