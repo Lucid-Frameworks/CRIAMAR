@@ -1,3 +1,5 @@
+import React, { useState } from "react";
+
 export function SentimentAnalysis() {
   const [token, setToken] = useState("");
   const [sentiment, setSentiment] = useState(null);
@@ -42,7 +44,7 @@ export function SentimentAnalysis() {
         {loading ? "Analyzing..." : "Analyze"}
       </button>
       {sentiment && (
-        <div className={`mt-4 text-xl font-bold ${sentimentColors[sentiment]}`}>
+        <div className={`mt-4 text-xl font-bold ${sentimentColors[sentiment]} opacity-0 animate-fadeIn`}>
           Sentiment: {sentiment}
         </div>
       )}
