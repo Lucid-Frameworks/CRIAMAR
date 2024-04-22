@@ -3,6 +3,14 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 
+function ErrorBoundary({ children }) {
+  return (
+    <React.Suspense fallback={<div className="flex justify-center items-center min-h-screen">Loading...</div>}>
+      {children}
+    </React.Suspense>
+  );
+}
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 const onRender = (id, phase, actualDuration) => {
@@ -12,7 +20,9 @@ const onRender = (id, phase, actualDuration) => {
 root.render(
   <React.StrictMode>
     <Profiler id="App" onRender={onRender}>
-      <App />
+      <ErrorBoundary>
+        <App />
+      </ErrorBoundary>
     </Profiler>
   </React.StrictMode>
 );
