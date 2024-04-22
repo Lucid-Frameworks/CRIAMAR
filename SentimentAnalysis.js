@@ -5,25 +5,25 @@ export function SentimentAnalysis() {
   const [sentiment, setSentiment] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const analyzeSentiment = () => {
+  const analyzeSentiment = async () => {
     if (!token) {
       alert("Please enter a token name to analyze.");
       return;
     }
 
     setLoading(true);
-    const sentiments = ["Positive", "Neutral", "Negative"];
-    setTimeout(() => {
-      const randomSentiment = sentiments[Math.floor(Math.random() * sentiments.length)];
-      setSentiment(randomSentiment);
+    try {
+      const response = await fetch(`https://api.example.com/sentiment?token=${encodeURIComponent(token)}`);
+      if (!response.ok) {
+        throw new Error("Failed to fetch sentiment analysis");
+      }
+      const data = await response.json();
+      setSentiment(data.sentiment || "Neutral");
+    } catch (error) {
+      setSentiment("Error fetching sentiment");
+    } finally {
       setLoading(false);
-    }, 1500);
-  };
-
-  const sentimentColors = {
-    Positive: "text-green-500",
-    Neutral: "text-yellow-500",
-    Negative: "text-red-500",
+    }
   };
 
   return (
@@ -44,7 +44,7 @@ export function SentimentAnalysis() {
         {loading ? "Analyzing..." : "Analyze"}
       </button>
       {sentiment && (
-        <div className={`mt-4 text-xl font-bold ${sentimentColors[sentiment]} opacity-0 animate-fadeIn`}>
+        <div className="mt-4 text-xl font-bold">
           Sentiment: {sentiment}
         </div>
       )}
