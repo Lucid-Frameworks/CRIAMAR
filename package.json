@@ -9,7 +9,7 @@
     "classnames": "^2.3.2", // Utility for conditionally joining classNames in JSX
     "framer-motion": "^10.16.0", // Added for smooth animations in UI components
     "dayjs": "^1.11.9", // Added for lightweight date manipulation and formatting
-    "react-query": "^3.39.2", // Added for managing API calls, caching, and state updates
+    "@tanstack/react-query": "^4.29.12", // Upgraded from react-query to @tanstack/react-query
     "react-toastify": "^9.1.3" // Added for displaying toast notifications
   }
 }
