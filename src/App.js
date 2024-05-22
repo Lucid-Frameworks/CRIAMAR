@@ -1,6 +1,6 @@
 import React, { lazy, Suspense, useEffect } from "react";
-import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
-import { Helmet, HelmetProvider } from "react-helmet-async"; // Import Helmet for SEO
+import { BrowserRouter as Router, Route, Routes, useLocation, Navigate } from "react-router-dom";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
@@ -13,6 +13,11 @@ const Contact = lazy(() => import("./pages/Contact"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
 
+function ProtectedRoute({ element }) {
+  const isAuthenticated = !!localStorage.getItem("authToken"); // Simple auth check
+  return isAuthenticated ? element : <Navigate to="/" replace />;
+}
+
 function App() {
   const location = useLocation();
 
@@ -20,20 +25,8 @@ function App() {
     console.log(`Navigated to: ${location.pathname}`);
   }, [location]);
 
-  const pageTitles = {
-    "/": "Home | My App",
-    "/about": "About Us | My App",
-    "/features": "Features | My App",
-    "/sentiment": "Sentiment Analysis | My App",
-    "/contact": "Contact Us | My App",
-    "/dashboard": "Dashboard | My App",
-  };
-
   return (
     <HelmetProvider>
-      <Helmet>
-        <title>{pageTitles[location.pathname] || "My App"}</title>
-      </Helmet>
       <Router>
         <ScrollToTop />
         <div className="min-h-screen flex flex-col bg-gray-900 text-white">
@@ -52,7 +45,7 @@ function App() {
                 <Route path="/features" element={<Features />} />
                 <Route path="/sentiment" element={<SentimentAnalysis />} />
                 <Route path="/contact" element={<Contact />} />
-                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/dashboard" element={<ProtectedRoute element={<Dashboard />} />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>
