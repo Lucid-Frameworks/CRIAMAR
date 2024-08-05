@@ -22,9 +22,9 @@ module.exports = {
       boxShadow: {
         custom: "0 10px 15px rgba(0, 0, 0, 0.1)",
       },
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))', // Added radial gradient
-        'gradient-conic': 'conic-gradient(var(--tw-gradient-stops))', // Added conic gradient
+      transitionTimingFunction: {
+        'in-expo': 'cubic-bezier(0.95, 0.05, 0.795, 0.035)', // Smooth transition
+        'out-expo': 'cubic-bezier(0.19, 1, 0.22, 1)',
       },
     },
   },
