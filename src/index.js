@@ -1,17 +1,14 @@
-import React, { Profiler } from "react";
+import React, { Profiler, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 
-function ErrorBoundary({ children }) {
-  return (
-    <React.Suspense fallback={<div className="flex justify-center items-center min-h-screen">Loading...</div>}>
-      {children}
-    </React.Suspense>
-  );
-}
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
+useEffect(() => {
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  document.documentElement.classList.toggle("dark", prefersDark);
+}, []);
 
 const onRender = (id, phase, actualDuration) => {
   console.log(`[React Profiler] ${id} took ${actualDuration}ms to render during ${phase}.`);
@@ -20,12 +17,11 @@ const onRender = (id, phase, actualDuration) => {
 root.render(
   <React.StrictMode>
     <Profiler id="App" onRender={onRender}>
-      <ErrorBoundary>
-        <App />
-      </ErrorBoundary>
+      <App />
     </Profiler>
   </React.StrictMode>
 );
+
 
 // Enable Hot Module Replacement (HMR) for faster development
 if (import.meta.webpackHot) {
