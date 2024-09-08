@@ -26,6 +26,11 @@ export function SentimentAnalysis() {
     }
   };
 
+  const resetAnalysis = () => {
+    setToken("");
+    setSentiment(null);
+  };
+
   return (
     <div className="p-6 max-w-3xl mx-auto text-center">
       <h2 className="text-3xl font-bold mb-4">Real-Time Token Sentiment Analysis</h2>
@@ -42,6 +47,12 @@ export function SentimentAnalysis() {
         disabled={loading}
       >
         {loading ? "Analyzing..." : "Analyze"}
+      </button>
+      <button
+        onClick={resetAnalysis}
+        className="ml-2 p-2 rounded-md bg-gray-500 hover:bg-gray-700 text-white"
+      >
+        Reset
       </button>
       {sentiment && (
         <div className="mt-4 text-xl font-bold">
