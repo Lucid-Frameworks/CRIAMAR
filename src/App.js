@@ -12,6 +12,9 @@ const SentimentAnalysis = lazy(() => import("./pages/SentimentAnalysis"));
 const Contact = lazy(() => import("./pages/Contact"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
+const Navbar = lazy(() => import("./components/Navbar"));
+const Footer = lazy(() => import("./components/Footer"));
+
 
 function ProtectedRoute({ element }) {
   const isAuthenticated = !!localStorage.getItem("authToken"); // Simple auth check
