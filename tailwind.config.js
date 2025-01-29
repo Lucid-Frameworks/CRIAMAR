@@ -22,9 +22,13 @@ module.exports = {
       boxShadow: {
         custom: "0 10px 15px rgba(0, 0, 0, 0.1)",
       },
-      transitionTimingFunction: {
-        'in-expo': 'cubic-bezier(0.95, 0.05, 0.795, 0.035)', // Smooth transition
-        'out-expo': 'cubic-bezier(0.19, 1, 0.22, 1)',
+      textColor: {
+        light: "#374151", // Text color for light mode
+        dark: "#E5E7EB", // Text color for dark mode
+      },
+      backgroundColor: {
+        light: "#F9FAFB", // Background color for light mode
+        dark: "#111827", // Background color for dark mode
       },
     },
   },
