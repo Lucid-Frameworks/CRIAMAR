@@ -8,7 +8,7 @@ export function Features() {
         <li>AI-driven sentiment tracking for blockchain tokens.</li>
         <li>Real-time analytics with historical trends.</li>
         <li>Customizable alerts for market movements.</li>
-        <li>Data insights to optimize trading strategies.</li>
+        <li>Decentralized data aggregation for unbiased insights.</li>
       </ul>
     </div>
   );
