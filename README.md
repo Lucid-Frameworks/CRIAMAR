@@ -1,4 +1,4 @@
-![Singulix Labs Banner](https://raw.githubusercontent.com/yourusername/yourrepo/main/twitter_banner_singulix_updated.jpg)
+![Singulix Labs Banner]([https://raw.githubusercontent.com/yourusername/yourrepo/main/twitter_banner_singulix_updated.jpg](https://github.com/Lucid-Frameworks/CRIAMAR/blob/05bc65184a8404a34a0a2c24a7eaee179f2d7438/CRIAMAR.png))
 
 # CRIAMAR
 
