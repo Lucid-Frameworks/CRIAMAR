@@ -12,7 +12,7 @@ export function SentimentAnalysis() {
 
   return (
     <div className="p-6 max-w-3xl mx-auto text-center">
-      <h2 className="text-3xl font-bold mb-4">Real-Time Token Sentiment Analysis</h2>
+      <h2 className="text-3xl font-bold mb-4">AI-Powered Token Sentiment Analysis</h2>
       <input
         type="text"
         placeholder="Enter token name"
@@ -27,7 +27,7 @@ export function SentimentAnalysis() {
         Analyze
       </button>
       {sentiment && (
-        <div className="mt-4 text-xl font-bold">Sentiment: {sentiment}</div>
+        <div className="mt-4 text-xl font-bold">Sentiment: {sentiment} (computed)</div>
       )}
     </div>
   );
