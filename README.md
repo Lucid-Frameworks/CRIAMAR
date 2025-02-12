@@ -1,3 +1,5 @@
+![Singulix Labs Banner](https://raw.githubusercontent.com/yourusername/yourrepo/main/twitter_banner_singulix_updated.jpg)
+
 # CRIAMAR
 
 ## Introduction
