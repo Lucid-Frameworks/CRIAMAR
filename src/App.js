@@ -14,7 +14,7 @@ function App() {
       <div className="min-h-screen flex flex-col bg-gray-900 text-white">
         <Navbar />
         <div className="flex-grow">
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<div>Error loading component. Please try again.</div>}>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
