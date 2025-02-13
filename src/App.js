@@ -7,6 +7,7 @@ const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
 const Features = lazy(() => import("./pages/Features"));
 const SentimentAnalysis = lazy(() => import("./pages/SentimentAnalysis"));
+const NotFound = lazy(() => import("./pages/NotFound")); // Added NotFound page
 
 function App() {
   return (
@@ -14,12 +15,13 @@ function App() {
       <div className="min-h-screen flex flex-col bg-gray-900 text-white">
         <Navbar />
         <div className="flex-grow">
-          <Suspense fallback={<div>Error loading component. Please try again.</div>}>
+          <Suspense fallback={<div>Loading...</div>}>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/features" element={<Features />} />
               <Route path="/sentiment" element={<SentimentAnalysis />} />
+              <Route path="*" element={<NotFound />} /> {/* Added catch-all route */}
             </Routes>
           </Suspense>
         </div>
