@@ -3,6 +3,7 @@ module.exports = {
       tailwindcss: {},
       autoprefixer: {},
       "postcss-nested": {}, 
-      "postcss-import": {}   
+      "postcss-import": {},
+      "postcss-flexbugs-fixes": {} // Fixes known flexbox issues
     },
-  };
+};
