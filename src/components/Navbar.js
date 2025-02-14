@@ -11,6 +11,7 @@ export function Navbar() {
           <Link to="/about" className="hover:underline">About</Link>
           <Link to="/features" className="hover:underline">Features</Link>
           <Link to="/sentiment" className="hover:underline">Sentiment</Link>
+          <Link to="/contact" className="hover:underline">Contact</Link> {/* Added Contact Page */}
         </div>
       </div>
     </nav>
