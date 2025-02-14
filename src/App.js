@@ -8,6 +8,7 @@ const About = lazy(() => import("./pages/About"));
 const Features = lazy(() => import("./pages/Features"));
 const SentimentAnalysis = lazy(() => import("./pages/SentimentAnalysis"));
 const NotFound = lazy(() => import("./pages/NotFound")); // Added NotFound page
+const Contact = lazy(() => import("./pages/Contact")); // Added Contact page
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/features" element={<Features />} />
               <Route path="/sentiment" element={<SentimentAnalysis />} />
+              <Route path="/contact" element={<Contact />} /> {/* Added Contact route */}
               <Route path="*" element={<NotFound />} /> {/* Added catch-all route */}
             </Routes>
           </Suspense>
