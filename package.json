@@ -5,6 +5,7 @@
       "react-router-dom": "^6.0.0",
       "axios": "^1.6.0",  // For making HTTP requests
       "zustand": "^4.4.0", // For state management
-      "react-icons": "^4.10.1" // For using icons in React
+      "react-icons": "^4.10.1", // For using icons in React
+      "classnames": "^2.3.2" // For conditional className management
     }
 }
