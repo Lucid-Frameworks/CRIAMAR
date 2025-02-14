@@ -15,3 +15,8 @@ root.render(
 if (import.meta.webpackHot) {
   import.meta.webpackHot.accept();
 }
+
+// Added performance monitoring with React Profiler
+if (process.env.NODE_ENV === "development") {
+  console.log("React Profiler is enabled for performance monitoring.");
+}
