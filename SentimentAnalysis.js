@@ -46,7 +46,12 @@ export function SentimentAnalysis() {
         className={`ml-2 p-2 rounded-md ${loading ? 'bg-gray-400' : 'bg-blue-500 hover:bg-blue-700'}`}
         disabled={loading}
       >
-        {loading ? "Analyzing..." : "Analyze"}
+        {loading ? (
+          <svg className="animate-spin h-5 w-5 mx-auto text-white" viewBox="0 0 24 24">
+            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+          </svg>
+        ) : "Analyze"}
       </button>
       <button
         onClick={resetAnalysis}
