@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop"; // Added ScrollToTop component
 
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
@@ -14,6 +15,7 @@ const Dashboard = lazy(() => import("./pages/Dashboard")); // Added Dashboard pa
 function App() {
   return (
     <Router>
+      <ScrollToTop /> {/* Ensures the page scrolls to top on route change */}
       <div className="min-h-screen flex flex-col bg-gray-900 text-white">
         <Navbar />
         <div className="flex-grow">
