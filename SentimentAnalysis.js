@@ -3,11 +3,16 @@ import React, { useState } from "react";
 export function SentimentAnalysis() {
   const [token, setToken] = useState("");
   const [sentiment, setSentiment] = useState(null);
+  const [loading, setLoading] = useState(false); // Added loading state
 
   const analyzeSentiment = () => {
+    setLoading(true); // Set loading state to true while analyzing
     const sentiments = ["Positive", "Neutral", "Negative"];
-    const randomSentiment = sentiments[Math.floor(Math.random() * sentiments.length)];
-    setSentiment(randomSentiment);
+    setTimeout(() => { // Simulate API call delay
+      const randomSentiment = sentiments[Math.floor(Math.random() * sentiments.length)];
+      setSentiment(randomSentiment);
+      setLoading(false); // Stop loading once analysis is done
+    }, 1500);
   };
 
   return (
@@ -22,9 +27,10 @@ export function SentimentAnalysis() {
       />
       <button
         onClick={analyzeSentiment}
-        className="ml-2 p-2 bg-blue-500 rounded-md hover:bg-blue-700"
+        className={`ml-2 p-2 rounded-md ${loading ? 'bg-gray-400' : 'bg-blue-500 hover:bg-blue-700'}`}
+        disabled={loading} // Disable button while loading
       >
-        Analyze
+        {loading ? "Analyzing..." : "Analyze"}
       </button>
       {sentiment && (
         <div className="mt-4 text-xl font-bold">Sentiment: {sentiment}</div>
