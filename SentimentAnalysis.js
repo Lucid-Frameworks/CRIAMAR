@@ -6,6 +6,11 @@ export function SentimentAnalysis() {
   const [loading, setLoading] = useState(false); // Added loading state
 
   const analyzeSentiment = () => {
+    if (!token) {
+      alert("Please enter a token name to analyze."); // Added alert for empty token
+      return;
+    }
+
     setLoading(true); // Set loading state to true while analyzing
     const sentiments = ["Positive", "Neutral", "Negative"];
     setTimeout(() => { // Simulate API call delay
