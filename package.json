@@ -8,6 +8,7 @@
     "react-icons": "^4.10.1", // Collection of popular icons for UI components
     "classnames": "^2.3.2", // Utility for conditionally joining classNames in JSX
     "framer-motion": "^10.16.0", // Added for smooth animations in UI components
-    "dayjs": "^1.11.9" // Added for lightweight date manipulation and formatting
+    "dayjs": "^1.11.9", // Added for lightweight date manipulation and formatting
+    "react-query": "^3.39.2" // Added for managing API calls, caching, and state updates
   }
 }
