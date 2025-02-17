@@ -1,5 +1,5 @@
-import React, { lazy, Suspense } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import React, { lazy, Suspense, useEffect } from "react";
+import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop"; // Added ScrollToTop component
@@ -13,6 +13,12 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 const Dashboard = lazy(() => import("./pages/Dashboard")); // Added Dashboard page
 
 function App() {
+  const location = useLocation();
+
+  useEffect(() => {
+    console.log(`Navigated to: ${location.pathname}`); // Log route changes for debugging
+  }, [location]);
+
   return (
     <Router>
       <ScrollToTop /> {/* Ensures the page scrolls to top on route change */}
