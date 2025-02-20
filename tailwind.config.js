@@ -38,5 +38,6 @@ module.exports = {
     require("@tailwindcss/aspect-ratio"),
     require("@tailwindcss/line-clamp"),
     require("tailwindcss-animate"),
+    require("@tailwindcss/container-queries"), // ✅ New plugin for container queries
   ],
 };
