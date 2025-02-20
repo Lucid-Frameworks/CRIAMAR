@@ -31,6 +31,12 @@ export function SentimentAnalysis() {
     setSentiment(null);
   };
 
+  const sentimentColor = sentiment === "Positive" 
+    ? "text-green-500" 
+    : sentiment === "Negative" 
+    ? "text-red-500" 
+    : "text-yellow-500";
+
   return (
     <div className="p-6 max-w-3xl mx-auto text-center">
       <h2 className="text-3xl font-bold mb-4">Real-Time Token Sentiment Analysis</h2>
@@ -60,7 +66,7 @@ export function SentimentAnalysis() {
         Reset
       </button>
       {sentiment && (
-        <div className="mt-4 text-xl font-bold">
+        <div className={`mt-4 text-xl font-bold ${sentimentColor}`}>
           Sentiment: {sentiment}
         </div>
       )}
