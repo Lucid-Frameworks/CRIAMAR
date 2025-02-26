@@ -20,27 +20,39 @@ root.render(
 
 reportWebVitals(console.log); // Log web vitals for performance monitoring
 
-
 // Enable Hot Module Replacement (HMR) for faster development
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept(() => {
+if (import.meta.hot) {
+  import.meta.hot.accept(() => {
     console.log("HMR: Module updated successfully!");
   });
 }
 
 // Register service worker for PWA support
 if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("/service-worker.js").then(() => {
-    console.log("Service Worker registered successfully.");
-  }).catch((error) => {
-    console.error("Service Worker registration failed:", error);
-  });
+  navigator.serviceWorker.register("/service-worker.js", { scope: "/" })
+    .then((registration) => {
+      console.log("Service Worker registered successfully.");
+
+      registration.addEventListener("updatefound", () => {
+        const newWorker = registration.installing;
+        newWorker?.addEventListener("statechange", () => {
+          if (newWorker.state === "installed" && navigator.serviceWorker.controller) {
+            console.log("New content available, please refresh.");
+          }
+        });
+      });
+    })
+    .catch((error) => {
+      console.error("Service Worker registration failed:", error);
+    });
 }
 
 // Conditionally add Google Analytics in production for tracking user interactions
 if (process.env.NODE_ENV === "production") {
+  const GA_TRACKING_ID = "UA-XXXXXXX-X"; // Replace with your GA tracking ID
+
   const script = document.createElement("script");
-  script.src = `https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXX-X`; // Replace with your GA tracking ID
+  script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`;
   script.async = true;
   document.head.appendChild(script);
 
@@ -50,7 +62,7 @@ if (process.env.NODE_ENV === "production") {
       window.dataLayer.push(arguments);
     }
     gtag("js", new Date());
-    gtag("config", "UA-XXXXXXX-X"); // Replace with your GA tracking ID
+    gtag("config", GA_TRACKING_ID);
     console.log("Google Analytics initialized.");
   };
 }
