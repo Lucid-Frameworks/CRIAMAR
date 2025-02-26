@@ -18,6 +18,7 @@ module.exports = {
         72: "18rem",
         84: "21rem",
         96: "24rem",
+        108: "27rem", // ✅ Added new spacing value
       },
       boxShadow: {
         custom: "0 10px 15px rgba(0, 0, 0, 0.1)",
@@ -30,6 +31,10 @@ module.exports = {
         light: "#F9FAFB", // Background color for light mode
         dark: "#111827", // Background color for dark mode
       },
+      screens: {
+        xs: "475px", // ✅ Added extra-small breakpoint
+        "2xl": "1440px", // ✅ Added extra-large breakpoint
+      },
     },
   },
   plugins: [
@@ -38,6 +43,6 @@ module.exports = {
     require("@tailwindcss/aspect-ratio"),
     require("@tailwindcss/line-clamp"),
     require("tailwindcss-animate"),
-    require("@tailwindcss/container-queries"), // ✅ New plugin for container queries
+    require("@tailwindcss/container-queries"),
   ],
 };
