@@ -2,12 +2,15 @@ import React, { Profiler } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import reportWebVitals from "./reportWebVitals"; // Import web vitals logging
+import reportWebVitals from "./reportWebVitals"; // Web vitals logging
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById("root")!);
 
-const onRender = (id, phase, actualDuration) => {
-  console.log(`[React Profiler] ${id} took ${actualDuration}ms to render during ${phase}.`);
+/**
+ * React Profiler callback for performance measurement
+ */
+const onRender = (id: string, phase: string, actualDuration: number) => {
+  console.log(`[Profiler] ${id} took ${actualDuration}ms to render during ${phase}.`);
 };
 
 root.render(
@@ -18,38 +21,45 @@ root.render(
   </React.StrictMode>
 );
 
-reportWebVitals(console.log); // Log web vitals for performance monitoring
+reportWebVitals(console.log); // Logs Core Web Vitals for performance tracking
 
-// Enable Hot Module Replacement (HMR) for faster development
+/**
+ * Enable Hot Module Replacement (HMR) for fast updates in development
+ */
 if (import.meta.hot) {
   import.meta.hot.accept(() => {
-    console.log("HMR: Module updated successfully!");
+    console.log("✅ HMR: Module updated successfully!");
   });
 }
 
-// Register service worker for PWA support
+/**
+ * Register Service Worker for PWA support and offline capabilities
+ */
 if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("/service-worker.js", { scope: "/" })
+  navigator.serviceWorker
+    .register("/service-worker.js", { scope: "/" })
     .then((registration) => {
-      console.log("Service Worker registered successfully.");
+      console.log("🚀 Service Worker registered successfully.");
 
       registration.addEventListener("updatefound", () => {
         const newWorker = registration.installing;
         newWorker?.addEventListener("statechange", () => {
           if (newWorker.state === "installed" && navigator.serviceWorker.controller) {
-            console.log("New content available, please refresh.");
+            console.log("🔄 New content available, please refresh.");
           }
         });
       });
     })
     .catch((error) => {
-      console.error("Service Worker registration failed:", error);
+      console.error("❌ Service Worker registration failed:", error);
     });
 }
 
-// Conditionally add Google Analytics in production for tracking user interactions
+/**
+ * Google Analytics Setup (Only in Production)
+ */
 if (process.env.NODE_ENV === "production") {
-  const GA_TRACKING_ID = "UA-XXXXXXX-X"; // Replace with your GA tracking ID
+  const GA_TRACKING_ID = "UA-XXXXXXX-X"; // Replace with actual GA tracking ID
 
   const script = document.createElement("script");
   script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`;
@@ -58,11 +68,11 @@ if (process.env.NODE_ENV === "production") {
 
   script.onload = () => {
     window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      window.dataLayer.push(arguments);
+    function gtag(...args: any[]) {
+      window.dataLayer.push(args);
     }
     gtag("js", new Date());
     gtag("config", GA_TRACKING_ID);
-    console.log("Google Analytics initialized.");
+    console.log("📊 Google Analytics initialized.");
   };
 }
