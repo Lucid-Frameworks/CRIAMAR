@@ -9,8 +9,6 @@ module.exports = {
         accent: "#F59E0B",
         darkBg: "#1F2937",
         darkText: "#F3F4F6",
-        light: "#F9FAFB", // ✅ Refined light mode background
-        dark: "#111827", // ✅ Refined dark mode background
       },
       fontFamily: {
         sans: ["Inter", "sans-serif"],
@@ -20,23 +18,22 @@ module.exports = {
         72: "18rem",
         84: "21rem",
         96: "24rem",
-        108: "27rem",
+        108: "27rem", // ✅ Added new spacing value
       },
       boxShadow: {
         custom: "0 10px 15px rgba(0, 0, 0, 0.1)",
-        refined: "0 12px 20px rgba(0, 0, 0, 0.12)", // ✅ New refined shadow
       },
       textColor: {
-        light: "#374151",
-        dark: "#E5E7EB",
+        light: "#374151", // Text color for light mode
+        dark: "#E5E7EB", // Text color for dark mode
       },
       backgroundColor: {
-        light: "#F9FAFB",
-        dark: "#111827",
+        light: "#F9FAFB", // Background color for light mode
+        dark: "#111827", // Background color for dark mode
       },
       screens: {
-        xs: "475px",
-        "2xl": "1440px",
+        xs: "475px", // ✅ Added extra-small breakpoint
+        "2xl": "1440px", // ✅ Added extra-large breakpoint
       },
     },
   },
