@@ -5,15 +5,6 @@
     "react-router-dom": "^6.0.0", // Enables routing between components
     "axios": "^1.6.0", // HTTP client for making API requests
     "zustand": "^4.4.0", // Lightweight state management for React
-    "react-icons": "^4.10.1", // Collection of popular icons for UI components
-    "classnames": "^2.3.2", // Utility for conditionally joining classNames in JSX
-    "framer-motion": "^10.16.0", // Added for smooth animations in UI components
-    "dayjs": "^1.11.9", // Added for lightweight date manipulation and formatting
-    "@tanstack/react-query": "^4.29.12", // Upgraded from react-query to @tanstack/react-query
-    "react-toastify": "^9.1.3", // Added for displaying toast notifications
-    "formik": "^2.4.4", // Added for form state management
-    "yup": "^1.2.0", // Added for form validation schema
-    "react-helmet-async": "^1.3.0", // Added for managing document metadata dynamically
-    "react-hook-form": "^7.45.1" // ✅ New addition for lightweight form handling
+    "react-icons": "^4.10.1" // Collection of popular icons for UI components
   }
 }
