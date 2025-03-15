@@ -3,12 +3,16 @@ import React, { useState } from "react";
 export function SentimentAnalysis() {
   const [token, setToken] = useState("");
   const [sentiment, setSentiment] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
 
   const analyzeSentiment = async () => {
     if (!token.trim()) {
       alert("Please enter a token name to analyze.");
       return;
     }
+
+    setLoading(true);
+    setSentiment(null);
 
     try {
       const response = await fetch(`https://api.example.com/sentiment?token=${encodeURIComponent(token)}`);
@@ -19,6 +23,8 @@ export function SentimentAnalysis() {
       setSentiment(data.sentiment || "Neutral");
     } catch (error) {
       setSentiment("Error fetching sentiment");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -36,9 +42,10 @@ export function SentimentAnalysis() {
         />
         <button
           onClick={analyzeSentiment}
-          className="p-2 rounded-md bg-blue-500 hover:bg-blue-700 text-white"
+          className={`p-2 rounded-md text-white transition ${loading ? "bg-gray-400 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-700"}`}
+          disabled={loading}
         >
-          Analyze
+          {loading ? "Loading..." : "Analyze"}
         </button>
       </div>
 
