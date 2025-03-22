@@ -5,6 +5,8 @@
     "react-router-dom": "^6.0.0", // Enables routing between components
     "axios": "^1.6.0", // HTTP client for making API requests
     "zustand": "^4.4.0", // Lightweight state management for React
-    "react-icons": "^4.10.1" // Collection of popular icons for UI components
+    "react-icons": "^4.10.1", // Collection of popular icons for UI components
+    "classnames": "^2.3.2", // Utility for conditionally joining classNames in JSX
+    "framer-motion": "^10.16.0" // Added for smooth animations in UI components
   }
 }
