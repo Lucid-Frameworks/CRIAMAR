@@ -9,8 +9,8 @@ module.exports = {
         accent: "#F59E0B",
         darkBg: "#1F2937",
         darkText: "#F3F4F6",
-        light: "#F9FAFB", // ✅ Refined light mode background
-        dark: "#111827", // ✅ Refined dark mode background
+        light: "#F9FAFB",
+        dark: "#111827",
       },
       fontFamily: {
         sans: ["Inter", "sans-serif"],
@@ -24,7 +24,7 @@ module.exports = {
       },
       boxShadow: {
         custom: "0 10px 15px rgba(0, 0, 0, 0.1)",
-        refined: "0 12px 20px rgba(0, 0, 0, 0.12)", // ✅ New refined shadow
+        refined: "0 12px 20px rgba(0, 0, 0, 0.12)",
       },
       textColor: {
         light: "#374151",
@@ -37,6 +37,7 @@ module.exports = {
       screens: {
         xs: "475px",
         "2xl": "1440px",
+        "3xl": "1600px", // ✅ Added new breakpoint
       },
     },
   },
@@ -47,5 +48,6 @@ module.exports = {
     require("@tailwindcss/line-clamp"),
     require("tailwindcss-animate"),
     require("@tailwindcss/container-queries"),
+    require("tailwindcss-typography"), // ✅ Added typography plugin
   ],
 };
