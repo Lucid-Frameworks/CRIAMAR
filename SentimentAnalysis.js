@@ -28,6 +28,18 @@ export function SentimentAnalysis() {
     }
   };
 
+  const resetAnalysis = () => {
+    setToken("");
+    setSentiment(null);
+  };
+
+  const sentimentColors: Record<string, string> = {
+    Positive: "text-green-500",
+    Negative: "text-red-500",
+    Neutral: "text-yellow-500",
+    Error: "text-gray-500",
+  };
+
   return (
     <div className="p-6 max-w-3xl mx-auto text-center">
       <h2 className="text-3xl font-bold mb-4">Real-Time Token Sentiment Analysis</h2>
@@ -47,9 +59,19 @@ export function SentimentAnalysis() {
         >
           {loading ? "Loading..." : "Analyze"}
         </button>
+        <button
+          onClick={resetAnalysis}
+          className="p-2 rounded-md bg-gray-500 hover:bg-gray-700 text-white"
+        >
+          Reset
+        </button>
       </div>
 
-      {sentiment && <div className="mt-4 text-xl font-bold">{`Sentiment: ${sentiment}`}</div>}
+      {sentiment && (
+        <div className={`mt-4 text-xl font-bold ${sentimentColors[sentiment] || "text-gray-500"}`}>
+          Sentiment: {sentiment}
+        </div>
+      )}
     </div>
   );
 }
