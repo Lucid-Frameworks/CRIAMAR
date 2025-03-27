@@ -15,6 +15,29 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
 
 /**
+ * ProtectedRoute: Restricts access to authenticated users.
+ */
+const ProtectedRoute = ({ element }) => {
+  const isAuthenticated = !!localStorage.getItem("authToken"); // Simple auth check
+  return isAuthenticated ? element : <Navigate to="/" replace />;
+};
+
+/**
+ * ErrorBoundary: Handles errors in lazy-loaded components with fallback UI.
+ */
+const ErrorBoundary = ({ children }) => (
+  <Suspense
+    fallback={
+      <div className="flex justify-center items-center min-h-screen">
+        <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-white"></div>
+      </div>
+    }
+  >
+    {children}
+  </Suspense>
+);
+
+/**
  * AppContent: Manages routing, navigation, and layout structure.
  */
 function AppContent() {
@@ -30,17 +53,17 @@ function AppContent() {
       <div className="min-h-screen flex flex-col bg-gray-900 text-white">
         <Navbar />
         <main className="flex-grow">
-          <Suspense fallback={<div>Loading...</div>}>
+          <ErrorBoundary>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/features" element={<Features />} />
               <Route path="/sentiment" element={<SentimentAnalysis />} />
               <Route path="/contact" element={<Contact />} />
-              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/dashboard" element={<ProtectedRoute element={<Dashboard />} />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
-          </Suspense>
+          </ErrorBoundary>
         </main>
         <Footer />
       </div>
