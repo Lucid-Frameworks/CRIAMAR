@@ -22,3 +22,26 @@ root.render(
 );
 
 reportWebVitals(console.log); // Logs Core Web Vitals for performance tracking
+
+/**
+ * Register Service Worker for PWA support and offline capabilities
+ */
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker
+    .register("/service-worker.js", { scope: "/" })
+    .then((registration) => {
+      console.log("🚀 Service Worker registered successfully.");
+
+      registration.addEventListener("updatefound", () => {
+        const newWorker = registration.installing;
+        newWorker?.addEventListener("statechange", () => {
+          if (newWorker.state === "installed" && navigator.serviceWorker.controller) {
+            console.log("🔄 New content available, please refresh.");
+          }
+        });
+      });
+    })
+    .catch((error) => {
+      console.error("❌ Service Worker registration failed:", error);
+    });
+}
