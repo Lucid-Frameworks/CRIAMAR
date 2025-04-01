@@ -7,5 +7,7 @@ module.exports = {
     "postcss-flexbugs-fixes": {}, // Fixes known flexbox issues
     "postcss-preset-env": {}, // Enables modern CSS features with fallbacks for older browsers
     "cssnano": process.env.NODE_ENV === "production" ? {} : false, // Minifies CSS in production for better performance
+    "postcss-custom-properties": {}, // Handles CSS custom properties in older browsers
+    "postcss-logical": {}, // Supports logical properties
   },
 };
