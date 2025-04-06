@@ -37,7 +37,7 @@ module.exports = {
       screens: {
         xs: "475px",
         "2xl": "1440px",
-        "3xl": "1600px", // ✅ Added new breakpoint
+        "3xl": "1600px",
       },
     },
   },
@@ -45,9 +45,10 @@ module.exports = {
     require("@tailwindcss/forms"),
     require("@tailwindcss/typography"),
     require("@tailwindcss/aspect-ratio"),
-    require("@tailwindcss/line-clamp"),
     require("tailwindcss-animate"),
     require("@tailwindcss/container-queries"),
-    require("tailwindcss-typography"), // ✅ Added typography plugin
+    require("tailwindcss-typography"),
+    require("./custom-tailwind-line-clamp"), // ✅ Custom plugin to replace line-clamp
   ],
 };
+ 
