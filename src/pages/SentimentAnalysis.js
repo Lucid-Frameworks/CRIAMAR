@@ -18,17 +18,3 @@ export function SentimentAnalysis() {
         placeholder="Enter token name"
         value={token}
         onChange={(e) => setToken(e.target.value)}
-        className="p-2 border rounded-md text-black"
-      />
-      <button
-        onClick={analyzeSentiment}
-        className="ml-2 p-2 bg-blue-500 rounded-md hover:bg-blue-700"
-      >
-        Analyze
-      </button>
-      {sentiment && (
-        <div className="mt-4 text-xl font-bold">Sentiment: {sentiment} (NLP-derived)</div>
-      )}
-    </div>
-  );
-}
