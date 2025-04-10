@@ -24,6 +24,15 @@ root.render(
 reportWebVitals(console.log); // Logs Core Web Vitals for performance tracking
 
 /**
+ * Enable Hot Module Replacement (HMR) for fast updates in development
+ */
+if (import.meta.hot) {
+  import.meta.hot.accept(() => {
+    console.log("✅ HMR: Module updated successfully!");
+  });
+}
+
+/**
  * Register Service Worker for PWA support and offline capabilities
  */
 if ("serviceWorker" in navigator) {
