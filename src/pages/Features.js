@@ -13,6 +13,9 @@ export function Features() {
   return (
     <div className="p-6 max-w-3xl mx-auto">
       <h2 className="text-3xl font-bold mb-4 text-center">🚀 Key Features</h2>
+      <p className="text-lg text-center mb-6">
+        CRIAMAR provides a comprehensive suite of tools to empower investors, developers, and traders in the blockchain space. Discover our key features below.
+      </p>
       <ul className="mt-4 space-y-4">
         {featureList.map((feature, index) => (
           <motion.li
@@ -30,4 +33,3 @@ export function Features() {
     </div>
   );
 }
- 
