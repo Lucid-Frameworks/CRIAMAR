@@ -17,7 +17,7 @@ export function Navbar() {
           {isAuthenticated && (
             <Link to="/dashboard" className="text-green-400 hover:text-white font-semibold">
               Dashboard
-            </Link>
+            </Link> 
           )}
         </div>
       </div>
