@@ -10,6 +10,15 @@ export function About() {
       <p className="mt-4 text-md">
         Our platform integrates seamlessly with popular blockchain networks, offering quick, accurate sentiment insights on any token you’re interested in. Whether you're a developer, trader, or investor, CRIAMAR simplifies decision-making with data-driven insights.
       </p>
+
+      <h3 className="text-2xl font-bold mt-8">Key Features</h3>
+      <ul className="list-disc list-inside text-lg mt-4">
+        <li>Real-time sentiment analysis for any blockchain token</li>
+        <li>AI-driven insights for smarter investment decisions</li>
+        <li>Comprehensive data and trend analysis</li>
+        <li>Seamless integration with blockchain networks</li>
+        <li>Easy-to-read, actionable insights with visual representations</li>
+      </ul>
     </div>
   );
 }
