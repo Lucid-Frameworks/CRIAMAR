@@ -20,7 +20,7 @@ export function Features() {
         {featureList.map((feature, index) => (
           <motion.li
             key={index}
-            className="flex items-center space-x-3 text-lg"
+            className="flex items-center space-x-3 text-lg hover:bg-blue-800 p-2 rounded-md transition-all"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: index * 0.2, duration: 0.5 }}
