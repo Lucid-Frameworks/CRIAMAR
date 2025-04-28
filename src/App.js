@@ -53,7 +53,7 @@ function AppContent() {
       <div className="min-h-screen flex flex-col bg-gray-900 text-white">
         <Navbar />
         <main className="flex-grow">
-          <ErrorBoundary> 
+          <ErrorBoundary>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
