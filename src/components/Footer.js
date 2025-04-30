@@ -2,7 +2,7 @@ import React from "react";
 
 export function Footer() {
   return (
-    <footer className="bg-gray-800 text-white py-4 text-center">
+    <footer className="bg-gray-800 text-white py-6 text-center">
       <p className="text-sm">&copy; {new Date().getFullYear()} CRIAMAR. All rights reserved.</p>
       
       <div className="mt-2 flex justify-center gap-4">
@@ -16,7 +16,10 @@ export function Footer() {
           📧
         </a>
       </div>
+
+      <div className="mt-4 text-sm text-gray-400">
+        <p>Founded in 2025 by blockchain enthusiasts and AI experts.</p>
+      </div>
     </footer>
   );
 }
-  
