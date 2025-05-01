@@ -19,6 +19,9 @@ export function About() {
         <li>Seamless integration with blockchain networks</li>
         <li>Easy-to-read, actionable insights with visual representations</li>
       </ul>
+
+      <h3 className="text-2xl font-bold mt-8">Get In Touch</h3>
+      <p className="mt-4 text-lg">Have questions or want to learn more about CRIAMAR? Reach out to us through the contact page for further details or to get started.</p>
     </div>
   );
 }
