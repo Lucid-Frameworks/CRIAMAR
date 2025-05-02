@@ -23,6 +23,11 @@ export function SentimentAnalysis() {
     }, 1000); // Simulating network delay
   };
 
+  const resetAnalysis = () => {
+    setToken("");
+    setSentiment(null);
+  };
+
   return (
     <div className="p-6 max-w-3xl mx-auto text-center">
       <h2 className="text-3xl font-bold mb-4">NLP-Based Token Sentiment Analysis</h2>
@@ -33,17 +38,24 @@ export function SentimentAnalysis() {
         onChange={(e) => setToken(e.target.value)}
         className="p-2 border rounded-md text-black"
       />
-      <button
-        onClick={analyzeSentiment}
-        className="ml-2 p-2 bg-blue-500 rounded-md hover:bg-blue-700"
-        disabled={loading}
-      >
-        {loading ? "Analyzing..." : "Analyze"}
-      </button>
+      <div className="mt-4">
+        <button
+          onClick={analyzeSentiment}
+          className="p-2 bg-blue-500 text-white rounded-md hover:bg-blue-700"
+          disabled={loading}
+        >
+          {loading ? "Analyzing..." : "Analyze"}
+        </button>
+        <button
+          onClick={resetAnalysis}
+          className="ml-4 p-2 bg-gray-500 text-white rounded-md hover:bg-gray-700"
+        >
+          Reset
+        </button>
+      </div>
       {sentiment && (
         <div className="mt-4 text-xl font-bold">Sentiment: {sentiment} (NLP-derived)</div>
       )}
     </div>
   );
 }
-  
