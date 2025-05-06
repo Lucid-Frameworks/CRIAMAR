@@ -20,10 +20,11 @@ export function Features() {
         {featureList.map((feature, index) => (
           <motion.li
             key={index}
-            className="flex items-center space-x-3 text-lg hover:bg-blue-800 p-2 rounded-md transition-all"
+            className="flex items-center space-x-3 text-lg hover:bg-blue-800 p-2 rounded-md transition-all focus:outline-none focus:ring-2 focus:ring-blue-500"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: index * 0.2, duration: 0.5 }}
+            aria-label={`Feature: ${feature.text}`}
           >
             <span className="text-blue-500 text-2xl">{feature.icon}</span>
             <span>{feature.text}</span>
