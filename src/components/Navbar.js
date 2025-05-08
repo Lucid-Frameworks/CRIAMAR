@@ -10,13 +10,13 @@ export function Navbar() {
       <div className="container mx-auto flex justify-between items-center">
         <span className="text-xl font-bold text-white">CRIAMAR</span>
         <div className="hidden md:flex space-x-4">
-          <Link to="/" className="text-gray-300 hover:text-white">Home</Link>
-          <Link to="/about" className="text-gray-300 hover:text-white">About</Link>
-          <Link to="/features" className="text-gray-300 hover:text-white">Features</Link>
-          <Link to="/sentiment" className="text-gray-300 hover:text-white">Sentiment</Link>
-          <Link to="/contact" className="text-gray-300 hover:text-white">Contact</Link>
+          <Link to="/" className="text-gray-300 hover:text-white transition-all duration-200">Home</Link>
+          <Link to="/about" className="text-gray-300 hover:text-white transition-all duration-200">About</Link>
+          <Link to="/features" className="text-gray-300 hover:text-white transition-all duration-200">Features</Link>
+          <Link to="/sentiment" className="text-gray-300 hover:text-white transition-all duration-200">Sentiment</Link>
+          <Link to="/contact" className="text-gray-300 hover:text-white transition-all duration-200">Contact</Link>
           {isAuthenticated && (
-            <Link to="/dashboard" className="text-green-400 hover:text-white font-semibold">
+            <Link to="/dashboard" className="text-green-400 hover:text-white font-semibold transition-all duration-200">
               Dashboard
             </Link>
           )}
@@ -38,13 +38,13 @@ export function Navbar() {
       </div>
       {isMenuOpen && (
         <div className="md:hidden bg-gray-800 text-white p-4">
-          <Link to="/" className="block py-2">Home</Link>
-          <Link to="/about" className="block py-2">About</Link>
-          <Link to="/features" className="block py-2">Features</Link>
-          <Link to="/sentiment" className="block py-2">Sentiment</Link>
-          <Link to="/contact" className="block py-2">Contact</Link>
+          <Link to="/" className="block py-2 hover:text-white transition-all duration-200">Home</Link>
+          <Link to="/about" className="block py-2 hover:text-white transition-all duration-200">About</Link>
+          <Link to="/features" className="block py-2 hover:text-white transition-all duration-200">Features</Link>
+          <Link to="/sentiment" className="block py-2 hover:text-white transition-all duration-200">Sentiment</Link>
+          <Link to="/contact" className="block py-2 hover:text-white transition-all duration-200">Contact</Link>
           {isAuthenticated && (
-            <Link to="/dashboard" className="block py-2 text-green-400">
+            <Link to="/dashboard" className="block py-2 text-green-400 hover:text-white transition-all duration-200">
               Dashboard
             </Link>
           )}
