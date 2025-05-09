@@ -24,7 +24,7 @@ export function Home() {
         transition={{ duration: 1 }}
       >
         <h2 className="text-2xl font-bold mb-4">Key Statistics</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
           <div className="p-4 bg-gray-800 rounded-md text-white">
             <h3 className="text-xl">Tokens Analyzed</h3>
             <p className="text-2xl">350+</p>
