@@ -19,6 +19,15 @@ export function Footer() {
 
       <div className="mt-4 text-sm text-gray-400">
         <p>Founded in 2025 by blockchain enthusiasts and AI experts.</p>
+        <p>
+          <a href="/privacy-policy" className="hover:underline text-gray-300" aria-label="Privacy Policy">
+            Privacy Policy
+          </a>{" "}
+          |{" "}
+          <a href="/terms-of-service" className="hover:underline text-gray-300" aria-label="Terms of Service">
+            Terms of Service
+          </a>
+        </p>
       </div>
     </footer>
   );
