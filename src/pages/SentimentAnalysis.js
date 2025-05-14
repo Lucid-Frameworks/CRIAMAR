@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 export function SentimentAnalysis() {
   const [token, setToken] = useState("");
@@ -16,7 +17,7 @@ export function SentimentAnalysis() {
 
     const sentiments = ["Positive", "Neutral", "Negative"];
     const randomSentiment = sentiments[Math.floor(Math.random() * sentiments.length)];
-    
+
     setTimeout(() => {
       setSentiment(randomSentiment);
       setLoading(false);
@@ -26,6 +27,12 @@ export function SentimentAnalysis() {
   const resetAnalysis = () => {
     setToken("");
     setSentiment(null);
+  };
+
+  const sentimentColors: Record<string, string> = {
+    Positive: "text-green-500",
+    Negative: "text-red-500",
+    Neutral: "text-yellow-500",
   };
 
   return (
@@ -54,8 +61,11 @@ export function SentimentAnalysis() {
         </button>
       </div>
       {sentiment && (
-        <div className="mt-4 text-xl font-bold">Sentiment: {sentiment} (NLP-derived)</div>
-      )}
-    </div>
-  );
-}
+        <motion.div
+          className={`mt-4 text-xl font-bold ${sentimentColors[sentiment] || "text-gray-500"}`}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          Sentiment: {sentiment} (NLP-derived)
+        </motion
