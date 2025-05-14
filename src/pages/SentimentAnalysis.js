@@ -1,38 +1,37 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
 
 export function SentimentAnalysis() {
   const [token, setToken] = useState("");
   const [sentiment, setSentiment] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  const analyzeSentiment = () => {
+  const analyzeSentiment = async () => {
     if (!token.trim()) {
-      alert("Please enter a token name to analyze.");
+      setError("Please enter a valid token name.");
       return;
     }
 
     setLoading(true);
     setSentiment(null);
+    setError(null);
 
-    const sentiments = ["Positive", "Neutral", "Negative"];
-    const randomSentiment = sentiments[Math.floor(Math.random() * sentiments.length)];
-
-    setTimeout(() => {
+    try {
+      // Simulate an API request or sentiment analysis process
+      const sentiments = ["Positive", "Neutral", "Negative"];
+      const randomSentiment = sentiments[Math.floor(Math.random() * sentiments.length)];
       setSentiment(randomSentiment);
+    } catch (err) {
+      setError("Error fetching sentiment.");
+    } finally {
       setLoading(false);
-    }, 1000); // Simulating network delay
+    }
   };
 
-  const resetAnalysis = () => {
-    setToken("");
-    setSentiment(null);
-  };
-
-  const sentimentColors: Record<string, string> = {
+  const sentimentColors = {
     Positive: "text-green-500",
-    Negative: "text-red-500",
     Neutral: "text-yellow-500",
+    Negative: "text-red-500",
   };
 
   return (
@@ -43,29 +42,21 @@ export function SentimentAnalysis() {
         placeholder="Enter token name"
         value={token}
         onChange={(e) => setToken(e.target.value)}
-        className="p-2 border rounded-md text-black"
+        className="p-2 border rounded-md text-black w-full sm:w-64"
       />
-      <div className="mt-4">
-        <button
-          onClick={analyzeSentiment}
-          className="p-2 bg-blue-500 text-white rounded-md hover:bg-blue-700"
-          disabled={loading}
-        >
-          {loading ? "Analyzing..." : "Analyze"}
-        </button>
-        <button
-          onClick={resetAnalysis}
-          className="ml-4 p-2 bg-gray-500 text-white rounded-md hover:bg-gray-700"
-        >
-          Reset
-        </button>
-      </div>
+      <button
+        onClick={analyzeSentiment}
+        className="ml-2 p-2 bg-blue-500 rounded-md hover:bg-blue-700"
+        disabled={loading}
+      >
+        {loading ? "Analyzing..." : "Analyze"}
+      </button>
+      {error && <div className="mt-4 text-red-500">{error}</div>}
       {sentiment && (
-        <motion.div
-          className={`mt-4 text-xl font-bold ${sentimentColors[sentiment] || "text-gray-500"}`}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
+        <div className={`mt-4 text-xl font-bold ${sentimentColors[sentiment] || "text-gray-500"}`}>
           Sentiment: {sentiment} (NLP-derived)
-        </motion
+        </div>
+      )}
+    </div>
+  );
+}
