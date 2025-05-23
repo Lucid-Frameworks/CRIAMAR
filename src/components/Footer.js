@@ -29,6 +29,10 @@ export function Footer() {
           </a>
         </p>
       </div>
+
+      <div className="mt-4 text-xs text-gray-500">
+        <p>Made with 💙 in the blockchain and AI community.</p>
+      </div>
     </footer>
   );
 }
