@@ -13,6 +13,7 @@
     "react-toastify": "^9.1.3", // Added for displaying toast notifications
     "formik": "^2.4.4", // Added for form state management
     "yup": "^1.2.0", // Added for form validation schema
-    "react-helmet-async": "^1.3.0" // Added for managing document metadata dynamically
+    "react-helmet-async": "^1.3.0", // Added for managing document metadata dynamically
+    "react-hook-form": "^7.45.1" // ✅ New addition for lightweight form handling
   }
 }
