@@ -33,6 +33,10 @@ export function Footer() {
       <div className="mt-4 text-xs text-gray-500">
         <p>Made with 💙 in the blockchain and AI community.</p>
       </div>
+
+      <div className="mt-4 text-xs text-gray-500 sm:text-sm md:text-base">
+        <p>Reach out for partnership or collaboration inquiries.</p>
+      </div>
     </footer>
   );
 }
