@@ -48,7 +48,6 @@ module.exports = {
     require("tailwindcss-animate"),
     require("@tailwindcss/container-queries"),
     require("tailwindcss-typography"),
-    require("./custom-tailwind-line-clamp"), // ✅ Custom plugin to replace line-clamp
+    // Removed unnecessary plugin
   ],
 };
- 
