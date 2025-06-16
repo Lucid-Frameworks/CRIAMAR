@@ -58,8 +58,8 @@ To install and start using CRIAMAR, follow these steps:
 4. **Analyze Trends** – Utilize AI-powered insights to make informed investment decisions.
 
 ## Contact & Community
-- **Website:** [CRIAMAR.com](https://www.criamar.app/)
-- **Twitter:** [@CRIAMAR](https://x.com/lucidframeworks)
+- **Website:** [CRIAMAR.app](https://www.criamar.app/)
+- **Twitter:** [@lucidframework](https://x.com/lucidframeworks)
 
 CRIAMAR is redefining crypto analytics through AI-driven sentiment tracking and predictive intelligence. Gain a competitive advantage in the blockchain market with real-time data and advanced market analysis.
 
