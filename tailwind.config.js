@@ -7,6 +7,7 @@ module.exports = {
         primary: "#1D4ED8",
         secondary: "#9333EA",
         accent: "#F59E0B",
+        success: "#10B981", // Added
         darkBg: "#1F2937",
         darkText: "#F3F4F6",
         light: "#F9FAFB",
@@ -14,7 +15,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ["Inter", "sans-serif"],
-        serif: ["Merriweather", "serif"],
+        serif: ["Merriweather", "serif"],.
       },
       spacing: {
         72: "18rem",
