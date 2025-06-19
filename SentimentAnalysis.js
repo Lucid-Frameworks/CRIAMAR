@@ -72,6 +72,8 @@ export function SentimentAnalysis() {
         </button>
       </div>
 
+      {loading && <p className="text-sm text-gray-400 mt-2">Analyzing sentiment...</p>}
+
       {sentiment && (
         <div className={`mt-4 text-xl font-bold ${sentimentColors[sentiment] || "text-gray-500"}`}>
           Sentiment: {sentiment}
@@ -80,4 +82,3 @@ export function SentimentAnalysis() {
     </div>
   );
 }
-   
