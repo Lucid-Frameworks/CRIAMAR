@@ -1,6 +1,7 @@
 import React from "react";
 import { FaChartLine, FaBell, FaRobot, FaDatabase } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
 
 export function Features() {
   const featureList = [
@@ -12,6 +13,11 @@ export function Features() {
 
   return (
     <div className="p-6 max-w-3xl mx-auto">
+      <Helmet>
+        <title>CRIAMAR | Features</title>
+        <meta name="description" content="Explore CRIAMAR’s real-time analytics, AI insights, and decentralized data tools." />
+      </Helmet>
+
       <h2 className="text-3xl font-bold mb-4 text-center">🚀 Key Features</h2>
       <p className="text-lg text-center mb-6">
         CRIAMAR provides a comprehensive suite of tools to empower investors, developers, and traders in the blockchain space. Discover our key features below.
@@ -34,4 +40,3 @@ export function Features() {
     </div>
   );
 }
- 
