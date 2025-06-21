@@ -13,18 +13,14 @@ const SentimentAnalysis = lazy(() => import("./pages/SentimentAnalysis"));
 const Contact = lazy(() => import("./pages/Contact"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
+const Terms = lazy(() => import("./pages/Terms")); // Added
+const Privacy = lazy(() => import("./pages/Privacy")); // Added
 
-/**
- * ProtectedRoute: Restricts access to authenticated users.
- */
 const ProtectedRoute = ({ element }) => {
-  const isAuthenticated = !!localStorage.getItem("authToken"); // Simple auth check
+  const isAuthenticated = !!localStorage.getItem("authToken");
   return isAuthenticated ? element : <Navigate to="/" replace />;
 };
 
-/**
- * ErrorBoundary: Handles errors in lazy-loaded components with fallback UI.
- */
 const ErrorBoundary = ({ children }) => (
   <Suspense
     fallback={
@@ -37,9 +33,6 @@ const ErrorBoundary = ({ children }) => (
   </Suspense>
 );
 
-/**
- * AppContent: Manages routing, navigation, and layout structure.
- */
 function AppContent() {
   const location = useLocation();
 
@@ -71,9 +64,6 @@ function AppContent() {
   );
 }
 
-/**
- * App: Wraps the application with a router.
- */
 function App() {
   return (
     <Router>
@@ -83,4 +73,3 @@ function App() {
 }
 
 export default App;
-  
