@@ -15,7 +15,8 @@ export function SentimentAnalysis() {
     setSentiment(null);
 
     try {
-      const response = await fetch(`https://api.example.com/sentiment?token=${encodeURIComponent(token)}`);
+      const trimmedToken = token.trim();
+      const response = await fetch(`https://api.example.com/sentiment?token=${encodeURIComponent(trimmedToken)}`);
       if (!response.ok) {
         throw new Error("Failed to fetch sentiment analysis");
       }
