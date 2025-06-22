@@ -15,7 +15,8 @@ module.exports = {
       },
       fontFamily: {
         sans: ["Inter", "sans-serif"],
-        serif: ["Merriweather", "serif"],.
+        serif: ["Merriweather", "serif"],
+        mono: ["Fira Code", "monospace"], // Added
       },
       spacing: {
         72: "18rem",
