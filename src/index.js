@@ -4,7 +4,9 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals"; // Web vitals logging
 
-const root = ReactDOM.createRoot(document.getElementById("root")!);
+const rootElement = document.getElementById("root");
+if (!rootElement) throw new Error("❌ Root element not found");
+const root = ReactDOM.createRoot(rootElement);
 
 /**
  * React Profiler callback for performance measurement
@@ -76,4 +78,3 @@ if (process.env.NODE_ENV === "production") {
     console.log("📊 Google Analytics initialized.");
   };
 }
-  
