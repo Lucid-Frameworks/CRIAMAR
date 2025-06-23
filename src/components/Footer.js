@@ -3,7 +3,9 @@ import React from "react";
 export function Footer() {
   return (
     <footer className="bg-gray-800 text-white py-6 text-center">
-      <p className="text-sm">&copy; {new Date().getFullYear()} CRIAMAR. All rights reserved.</p>
+      <p className="text-sm" aria-label="Copyright">
+        &copy; {new Date().getFullYear()} CRIAMAR. All rights reserved.
+      </p>
       
       <div className="mt-2 flex justify-center gap-4">
         <a href="https://twitter.com/criamar" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
