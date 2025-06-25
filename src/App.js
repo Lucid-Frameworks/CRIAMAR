@@ -53,6 +53,8 @@ function AppContent() {
               <Route path="/features" element={<Features />} />
               <Route path="/sentiment" element={<SentimentAnalysis />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/terms" element={<Terms />} /> {/* Added */}
+              <Route path="/privacy" element={<Privacy />} /> {/* Added */}
               <Route path="/dashboard" element={<ProtectedRoute element={<Dashboard />} />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
