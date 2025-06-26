@@ -17,7 +17,6 @@ export function SentimentAnalysis() {
     setError(null);
 
     try {
-      // Simulate an API request or sentiment analysis process
       const sentiments = ["Positive", "Neutral", "Negative"];
       const randomSentiment = sentiments[Math.floor(Math.random() * sentiments.length)];
       setSentiment(randomSentiment);
@@ -44,6 +43,9 @@ export function SentimentAnalysis() {
         onChange={(e) => setToken(e.target.value)}
         className="p-2 border rounded-md text-black w-full sm:w-64"
       />
+      {token === "" && (
+        <p className="text-sm text-red-400 mt-1">Input cannot be empty.</p>
+      )}
       <button
         onClick={analyzeSentiment}
         className="ml-2 p-2 bg-blue-500 rounded-md hover:bg-blue-700"
@@ -60,4 +62,3 @@ export function SentimentAnalysis() {
     </div>
   );
 }
-  
