@@ -8,7 +8,13 @@ export function Footer() {
       </p>
       
       <div className="mt-2 flex justify-center gap-4">
-        <a href="https://twitter.com/criamar" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+        <a
+          href="https://twitter.com/criamar"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Twitter"
+          className="hover:scale-110 transition-transform duration-200"
+        >
           🐦
         </a>
         <a href="https://linkedin.com/company/criamar" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
