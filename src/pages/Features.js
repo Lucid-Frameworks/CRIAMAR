@@ -12,7 +12,7 @@ export function Features() {
   ];
 
   return (
-    <div className="p-6 max-w-3xl mx-auto">
+    <div id="features" className="p-6 max-w-3xl mx-auto">
       <Helmet>
         <title>CRIAMAR | Features</title>
         <meta name="description" content="Explore CRIAMAR’s real-time analytics, AI insights, and decentralized data tools." />
