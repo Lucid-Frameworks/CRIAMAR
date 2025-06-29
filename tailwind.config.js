@@ -23,6 +23,8 @@ module.exports = {
         84: "21rem",
         96: "24rem",
         108: "27rem",
+        120: "30rem", // Added
+        132: "33rem", // Added
       },
       boxShadow: {
         custom: "0 10px 15px rgba(0, 0, 0, 0.1)",
