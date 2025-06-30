@@ -23,6 +23,8 @@ root.render(
   </React.StrictMode>
 );
 
+console.log("✅ App successfully rendered to the DOM");
+
 reportWebVitals(console.log); // Logs Core Web Vitals for performance tracking
 
 /**
