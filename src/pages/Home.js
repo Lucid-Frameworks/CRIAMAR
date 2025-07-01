@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 
 export function Home() {
   return (
@@ -18,9 +19,12 @@ export function Home() {
         Start exploring the platform to make smarter investment decisions and stay ahead of market trends!
       </p>
       <div className="mt-8">
-        <a href="/features" className="inline-block py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-700">
+        <Link
+          to="/features"
+          className="inline-block py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-700"
+        >
           Explore Features
-        </a>
+        </Link>
       </div>
 
       <motion.div
