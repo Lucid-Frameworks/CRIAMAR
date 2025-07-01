@@ -51,6 +51,9 @@ export function SentimentAnalysis() {
           placeholder="Enter token name"
           value={token}
           onChange={(e) => setToken(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" && !loading) analyzeSentiment();
+          }}
           className="p-2 border rounded-md text-black w-64"
         />
         <button
