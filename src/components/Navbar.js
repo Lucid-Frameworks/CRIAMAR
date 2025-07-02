@@ -9,7 +9,7 @@ export function Navbar() {
     <header>
       <nav className="bg-gray-800 p-4" aria-label="Main navigation">
         <div className="container mx-auto flex justify-between items-center">
-          <span className="text-xl font-bold text-white">CRIAMAR</span>
+          <Link to="/" className="text-xl font-bold text-white" aria-label="CRIAMAR logo">CRIAMAR</Link>
           <div className="hidden md:flex space-x-4">
             <Link to="/" className="text-gray-300 hover:text-white transition-all duration-200" aria-label="Home">Home</Link>
             <Link to="/about" className="text-gray-300 hover:text-white transition-all duration-200" aria-label="About">About</Link>
