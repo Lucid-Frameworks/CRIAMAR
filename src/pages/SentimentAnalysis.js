@@ -36,13 +36,16 @@ export function SentimentAnalysis() {
   return (
     <div className="p-6 max-w-3xl mx-auto text-center">
       <h2 className="text-3xl font-bold mb-4">NLP-Based Token Sentiment Analysis</h2>
-      <input
-        type="text"
-        placeholder="Enter token name"
-        value={token}
-        onChange={(e) => setToken(e.target.value)}
-        className="p-2 border rounded-md text-black w-full sm:w-64"
-      />
+        <input
+            type="text"
+            placeholder="Enter token name"
+            value={token}
+            onChange={(e) => setToken(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" && !loading) analyzeSentiment();
+            }}
+            className="p-2 border rounded-md text-black w-full sm:w-64"
+          />
       {token === "" && (
         <p className="text-sm text-red-400 mt-1">Input cannot be empty.</p>
       )}
