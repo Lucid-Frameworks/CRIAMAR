@@ -20,9 +20,15 @@ export function Footer() {
         <a href="https://linkedin.com/company/criamar" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
           🔗
         </a>
-        <a href="mailto:contact@criamar.com" aria-label="Email">
-          📧
-        </a>
+        <div className="mt-4">
+          <a
+            href="mailto:contact@criamar.com"
+            className="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 text-xs sm:text-sm"
+            aria-label="Email us"
+          >
+            ✉️ Email Us for Partnerships
+          </a>
+        </div>
       </div>
 
       <div className="mt-4 text-sm text-gray-400">
