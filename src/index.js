@@ -32,7 +32,7 @@ reportWebVitals(console.log); // Logs Core Web Vitals for performance tracking
  */
 if (import.meta.hot) {
   import.meta.hot.accept(() => {
-    console.log("✅ HMR: Module updated successfully!");
+    console.log(`✅ HMR: Module updated successfully at ${new Date().toLocaleTimeString()}`);
   });
 }
 
