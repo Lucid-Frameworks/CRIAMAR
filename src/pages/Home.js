@@ -37,7 +37,14 @@ export function Home() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
           <div className="p-4 bg-gray-800 rounded-md text-white">
             <h3 className="text-xl">Tokens Analyzed</h3>
-            <p className="text-2xl">350+</p>
+            <motion.p
+              className="text-2xl"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+            >
+              350+
+            </motion.p>
           </div>
           <div className="p-4 bg-gray-800 rounded-md text-white">
             <h3 className="text-xl">Real-time Data</h3>
