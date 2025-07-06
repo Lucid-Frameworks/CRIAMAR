@@ -11,6 +11,13 @@ export function Features() {
     { icon: <FaDatabase />, text: "Decentralized data aggregation for unbiased insights." },
   ];
 
+  <span
+    className="text-blue-500 text-2xl"
+    style={{ animationDelay: `${index * 0.2}s` }}
+  >
+    {feature.icon}
+  </span>
+
   return (
     <div id="features" className="p-6 max-w-3xl mx-auto">
       <Helmet>
