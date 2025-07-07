@@ -18,8 +18,8 @@ export function About() {
       </p>
 
       <h3 className="text-2xl font-bold mt-8">Key Features</h3>
-      <ul className="list-disc list-inside text-lg mt-4">
-        <li>Real-time sentiment analysis for any blockchain token</li>
+      <ul className="list-disc list-inside text-lg mt-4" role="list">
+        <li role="listitem">Real-time sentiment analysis for any blockchain token</li>
         <li>AI-driven insights for smarter investment decisions</li>
         <li>Comprehensive data and trend analysis</li>
         <li>Seamless integration with blockchain networks</li>
