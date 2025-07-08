@@ -49,11 +49,17 @@ export function SentimentAnalysis() {
       {token === "" && (
         <p className="text-sm text-red-400 mt-1">Input cannot be empty.</p>
       )}
-      <button
-        onClick={analyzeSentiment}
-        className="ml-2 p-2 bg-blue-500 rounded-md hover:bg-blue-700"
-        disabled={loading}
-      >
+      {error && (
+        <div className="mt-4 text-red-500">
+          {error}
+          <button
+            onClick={analyzeSentiment}
+            className="ml-2 underline text-blue-300 hover:text-blue-500"
+          >
+            Retry
+          </button>
+        </div>
+      )}
         {loading ? "Analyzing..." : "Analyze"}
       </button>
       {error && <div className="mt-4 text-red-500">{error}</div>}
