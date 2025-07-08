@@ -71,6 +71,7 @@ export function SentimentAnalysis() {
         <button
           onClick={resetAnalysis}
           className="p-2 rounded-md bg-gray-500 hover:bg-gray-700 text-white"
+          disabled={loading}
         >
           Reset
         </button>
