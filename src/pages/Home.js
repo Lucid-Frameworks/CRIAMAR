@@ -58,6 +58,9 @@ export function Home() {
             <h3 className="text-xl">Tokens Tracked</h3>
             <p className="text-2xl">200+</p>
           </div>
+              <p className="mt-2 text-sm text-gray-400">
+            Or scroll down to learn more about how CRIAMAR works.
+          </p>
         </div>
       </motion.div>
     </div>
