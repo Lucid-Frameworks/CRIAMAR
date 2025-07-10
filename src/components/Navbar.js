@@ -35,6 +35,9 @@ export function Navbar() {
           </button>
         </div>
         {isMenuOpen && (
+          <>
+            <div className="fixed inset-0 bg-black bg-opacity-40 z-10" onClick={() => setIsMenuOpen(false)} aria-hidden="true" />
+            <div className="md:hidden bg-gray-800 text-white p-4 relative z-20">
           <div className="md:hidden bg-gray-800 text-white p-4">
             <Link to="/" className="block py-2 hover:text-white transition-all duration-200" aria-label="Home">Home</Link>
             <Link to="/about" className="block py-2 hover:text-white transition-all duration-200" aria-label="About">About</Link>
