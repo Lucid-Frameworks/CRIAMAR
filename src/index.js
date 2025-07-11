@@ -45,7 +45,7 @@ if ("serviceWorker" in navigator) {
     .then((registration) => {
       console.log("🚀 Service Worker registered successfully.");
 
-      registration.addEventListener("updatefound", () => {
+      registration?.addEventListener?.("updatefound", () => {
         const newWorker = registration.installing;
         newWorker?.addEventListener("statechange", () => {
           if (newWorker.state === "installed" && navigator.serviceWorker.controller) {
