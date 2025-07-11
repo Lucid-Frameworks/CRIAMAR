@@ -3,6 +3,7 @@ import React from "react";
 export function Footer() {
   return (
     <footer className="bg-gray-800 text-white py-6 text-center">
+      <div role="contentinfo">
       <p className="text-sm" aria-label="Copyright">
         &copy; {new Date().getFullYear()} CRIAMAR. All rights reserved.
       </p>
