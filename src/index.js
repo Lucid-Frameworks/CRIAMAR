@@ -63,7 +63,7 @@ if ("serviceWorker" in navigator) {
  * Google Analytics Setup (Only in Production)
  */
 if (process.env.NODE_ENV === "production") {
-  const GA_TRACKING_ID = "UA-XXXXXXX-X"; // Replace with actual GA tracking ID
+  const GA_TRACKING_ID = import.meta.env.VITE_GA_ID || "UA-XXXXXXX-X"; // Use env var first
 
   const script = document.createElement("script");
   script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`;
