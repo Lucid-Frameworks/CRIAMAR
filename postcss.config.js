@@ -18,7 +18,7 @@ module.exports = {
     },
 
     // Conditionally loaded based on environment
-    "postcss-color-function": process.env.NODE_ENV !== "production" ? {} : false,
+    // "postcss-color-function": process.env.NODE_ENV !== "production" ? {} : false,
     "cssnano": process.env.NODE_ENV === "production" ? {} : false,
     "postcss-discard-comments": process.env.NODE_ENV === "production" ? {} : false,
   },
