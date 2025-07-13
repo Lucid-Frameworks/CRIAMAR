@@ -38,7 +38,9 @@ function AppContent() {
 
   useEffect(() => {
     console.log(`Navigated to: ${location.pathname}`);
+    sessionStorage.setItem("lastRoute", location.pathname); // Added
   }, [location]);
+
 
   return (
     <HelmetProvider>
