@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 
-export function Home() {
+export function Home({ stats = { analyzed: "350+", realtime: "24/7", users: "12K+", tracked: "200+" } }) {
   return (
     <div className="p-6 text-center max-w-3xl mx-auto">
       <Helmet>
