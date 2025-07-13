@@ -21,7 +21,7 @@ export function SentimentAnalysis() {
         throw new Error("Failed to fetch sentiment analysis");
       }
       const data = await response.json();
-      setSentiment(data.sentiment || "Neutral");
+      setSentiment(data?.sentiment ?? "Unable to determine sentiment"); // Updated fallback
     } catch (error) {
       setSentiment("Error fetching sentiment");
     } finally {
