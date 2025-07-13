@@ -52,7 +52,5 @@ module.exports = {
     require("@tailwindcss/aspect-ratio"),
     require("tailwindcss-animate"),
     require("@tailwindcss/container-queries"),
-    require("tailwindcss-typography"),
-    // Removed unnecessary plugin
   ],
 };
