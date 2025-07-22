@@ -1,16 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export function SentimentAnalysis() {
   const [token, setToken] = useState("");
   const [sentiment, setSentiment] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null); // Added error state
 
   const analyzeSentiment = async () => {
     if (!token.trim()) {
-      alert("Please enter a token name to analyze.");
+      setError("Please enter a token name to analyze."); // Input validation message
       return;
     }
 
+    setError(null); // Clear any previous error
     setLoading(true);
     setSentiment(null);
 
@@ -32,6 +34,7 @@ export function SentimentAnalysis() {
   const resetAnalysis = () => {
     setToken("");
     setSentiment(null);
+    setError(null); // Reset error state
   };
 
   const sentimentColors: Record<string, string> = {
@@ -44,6 +47,8 @@ export function SentimentAnalysis() {
   return (
     <div className="p-6 max-w-3xl mx-auto text-center">
       <h2 className="text-3xl font-bold mb-4">Real-Time Token Sentiment Analysis</h2>
+
+      {error && <p className="text-red-500">{error}</p>} {/* Display error message */}
 
       <div className="flex justify-center gap-2">
         <input
