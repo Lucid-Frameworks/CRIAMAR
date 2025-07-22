@@ -26,7 +26,7 @@ export function Navbar() {
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="md:hidden text-white"
-            aria-label="Open menu"
+            aria-label="Toggle menu"
             aria-expanded={isMenuOpen ? "true" : "false"}
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -38,7 +38,7 @@ export function Navbar() {
         {isMenuOpen && (
           <>
             <div className="fixed inset-0 bg-black bg-opacity-40 z-10" onClick={() => setIsMenuOpen(false)} aria-hidden="true" />
-            <div className="md:hidden bg-gray-800 text-white p-4 relative z-20 transition-all duration-300 ease-in-out">
+            <div className="md:hidden bg-gray-800 text-white p-4 relative z-20">
               <Link to="/" className="block py-2 hover:text-white transition-all duration-200" aria-label="Home">Home</Link>
               <Link to="/about" className="block py-2 hover:text-white transition-all duration-200" aria-label="About">About</Link>
               <Link to="/features" className="block py-2 hover:text-white transition-all duration-200" aria-label="Features">Features</Link>
