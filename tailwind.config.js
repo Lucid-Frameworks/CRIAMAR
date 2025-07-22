@@ -12,6 +12,7 @@ module.exports = {
         darkText: "#F3F4F6",
         light: "#F9FAFB",
         dark: "#111827",
+        error: "#DC2626", // Added error color
       },
       fontFamily: {
         sans: ["Inter", "sans-serif"],
@@ -25,6 +26,7 @@ module.exports = {
         108: "27rem",
         120: "30rem", // Added
         132: "33rem", // Added
+        140: "35rem", // Added custom spacing
       },
       boxShadow: {
         custom: "0 10px 15px rgba(0, 0, 0, 0.1)",
@@ -54,3 +56,4 @@ module.exports = {
     require("@tailwindcss/container-queries"),
   ],
 };
+ 
