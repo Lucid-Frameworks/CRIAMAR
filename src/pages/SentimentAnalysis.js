@@ -62,7 +62,9 @@ export function SentimentAnalysis() {
         className="ml-2 p-2 bg-blue-500 rounded-md hover:bg-blue-700"
         disabled={loading}
       >
-        {loading ? "Analyzing..." : "Analyze"}
+        {loading ? (
+          <span className="animate-spin">🔄</span> // Added spinner
+        ) : "Analyze"}
       </button>
       {error && (
         <div className="mt-4 text-red-500">
