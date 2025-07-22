@@ -26,6 +26,7 @@ const ErrorBoundary = ({ children }) => (
     fallback={
       <section aria-busy="true" className="flex justify-center items-center min-h-screen">
         <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-white"></div>
+        <p className="text-white mt-4">Loading, please wait...</p> {/* Improved fallback */}
       </section>
     }
   >
