@@ -22,11 +22,26 @@ useEffect(() => {
   console.log("✅ App initialized and mounted");
 }, []); // Log when the app mounts
 
+const ErrorBoundary = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <React.ErrorBoundary
+      fallback={<div>Something went wrong. Please try again later.</div>}
+      onError={(error, info) => {
+        console.error("Global error:", error, info);
+      }}
+    >
+      {children}
+    </React.ErrorBoundary>
+  );
+};
+
 root.render(
   <React.StrictMode>
-    <Profiler id="App" onRender={onRender}>
-      <App />
-    </Profiler>
+    <ErrorBoundary>
+      <Profiler id="App" onRender={onRender}>
+        <App />
+      </Profiler>
+    </ErrorBoundary>
   </React.StrictMode>
 );
 
