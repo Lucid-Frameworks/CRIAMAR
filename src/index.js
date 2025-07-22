@@ -46,13 +46,13 @@ if (import.meta.hot) {
 /**
  * Register Service Worker for PWA support and offline capabilities
  */
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker
-    .register("/service-worker.js", { scope: "/" })
-    .then((registration) => {
+const registerServiceWorker = async () => {
+  if ("serviceWorker" in navigator) {
+    try {
+      const registration = await navigator.serviceWorker.register("/service-worker.js", { scope: "/" });
       console.log("🚀 Service Worker registered successfully.");
 
-      registration?.addEventListener?.("updatefound", () => {
+      registration.addEventListener("updatefound", () => {
         const newWorker = registration.installing;
         newWorker?.addEventListener("statechange", () => {
           if (newWorker.state === "installed" && navigator.serviceWorker.controller) {
@@ -60,17 +60,19 @@ if ("serviceWorker" in navigator) {
           }
         });
       });
-    })
-    .catch((error) => {
+    } catch (error) {
       console.error("❌ Service Worker registration failed:", error);
-    });
-}
+    }
+  }
+};
+
+registerServiceWorker();
 
 /**
  * Google Analytics Setup (Only in Production)
  */
 if (process.env.NODE_ENV === "production") {
-  const GA_TRACKING_ID = import.meta.env.VITE_GA_ID || "UA-XXXXXXX-X"; // Fallback to default ID
+  const GA_TRACKING_ID = import.meta.env.VITE_GA_ID || "UA-XXXXXXX-X"; // Use env var first
 
   const script = document.createElement("script");
   script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`;
