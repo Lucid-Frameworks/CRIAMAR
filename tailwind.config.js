@@ -31,6 +31,7 @@ module.exports = {
       boxShadow: {
         custom: "0 10px 15px rgba(0, 0, 0, 0.1)",
         refined: "0 12px 20px rgba(0, 0, 0, 0.12)",
+        light: "0 4px 6px rgba(0, 0, 0, 0.1)", // Added refined light shadow
       },
       textColor: {
         light: "#374151",
@@ -55,5 +56,6 @@ module.exports = {
     require("@tailwindcss/aspect-ratio"),
     require("tailwindcss-animate"),
     require("@tailwindcss/container-queries"),
+    require("@tailwindcss/custom-forms"), // Added custom forms plugin
   ],
 };
