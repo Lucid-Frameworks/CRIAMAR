@@ -1,11 +1,14 @@
-import React, { Profiler } from "react";
+import React, { Profiler, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals"; // Web vitals logging
 
 const rootElement = document.getElementById("root");
-if (!rootElement) throw new Error("❌ Root element not found");
+if (!rootElement) {
+  console.warn("❌ Root element not found, cannot render app.");
+  throw new Error("❌ Root element not found");
+}
 const root = ReactDOM.createRoot(rootElement);
 
 /**
@@ -14,6 +17,10 @@ const root = ReactDOM.createRoot(rootElement);
 const onRender = (id: string, phase: string, actualDuration: number) => {
   console.log(`[Profiler] ${id} took ${actualDuration}ms to render during ${phase}.`);
 };
+
+useEffect(() => {
+  console.log("✅ App initialized and mounted");
+}, []); // Log when the app mounts
 
 root.render(
   <React.StrictMode>
