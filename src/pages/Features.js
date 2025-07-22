@@ -10,7 +10,7 @@ const defaultFeatureList = [
   { icon: <FaDatabase />, text: "Decentralized data aggregation for unbiased insights." },
 ];
 
-export function Features({ features = defaultFeatureList }) {
+export function Features({ features = defaultFeatureList, isLoading = false }) {
   return (
     <div id="features" className="p-6 max-w-3xl mx-auto">
       <Helmet>
@@ -22,26 +22,30 @@ export function Features({ features = defaultFeatureList }) {
       <p className="text-lg text-center mb-6">
         CRIAMAR provides a comprehensive suite of tools to empower investors, developers, and traders in the blockchain space. Discover our key features below.
       </p>
-      <ul className="mt-4 space-y-4">
-        {features.map((feature, index) => (
-          <motion.li
-            key={index}
-            className="flex items-center space-x-3 text-lg hover:bg-blue-800 p-2 rounded-md transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: index * 0.2, duration: 0.5 }}
-            aria-label={`Feature: ${feature.text}`}
-          >
-            <span
-              className="text-blue-500 text-2xl"
-              style={{ animationDelay: `${index * 0.2}s` }}
+      {isLoading ? (
+        <p className="text-center text-lg">Loading features...</p>
+      ) : (
+        <ul className="mt-4 space-y-4">
+          {features.map((feature, index) => (
+            <motion.li
+              key={index}
+              className="flex items-center space-x-3 text-lg hover:bg-blue-800 p-2 rounded-md transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: index * 0.2, duration: 0.5 }}
+              aria-label={`Feature: ${feature.text}`}
             >
-              {feature.icon}
-            </span>
-            <span>{feature.text}</span>
-          </motion.li>
-        ))}
-      </ul>
+              <span
+                className="text-blue-500 text-2xl"
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
+                {feature.icon}
+              </span>
+              <span>{feature.text}</span>
+            </motion.li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
