@@ -2,7 +2,7 @@ module.exports = {
   plugins: {
     // Core styling tools
     autoprefixer: {
-      overrideBrowserslist: "> 1%, last 2 versions, Firefox ESR", // Added browser list configuration
+      overrideBrowserslist: "> 1%, last 2 versions, Firefox ESR", // Keeping browser support
     },
     tailwindcss: {},
 
@@ -16,8 +16,8 @@ module.exports = {
     "postcss-custom-properties": {},
     "postcss-flexbugs-fixes": {},
     "postcss-preset-env": {
-      stage: 2, // Keeping stage as 2
-      autoprefixer: { grid: true }, // Added grid support for autoprefixer
+      stage: 2, // Keeping stage 2
+      autoprefixer: { grid: true }, // Enabling grid support
     },
 
     // Conditionally loaded based on environment
@@ -26,10 +26,6 @@ module.exports = {
     } : false,
     "postcss-discard-comments": process.env.NODE_ENV === "production" ? {} : false,
 
-    // Updated purgecss for better support
-    "postcss-purgecss": process.env.NODE_ENV === "production" ? {
-      content: ["./src/**/*.html", "./src/**/*.js", "./src/**/*.jsx", "./src/**/*.ts", "./src/**/*.tsx"],
-      defaultExtractor: content => content.match(/[\w-/:]+(?=\s*{)/g) || [],
-    } : false,
+    // Removed postcss-purgecss due to Tailwind's built-in purge functionality
   },
 };
