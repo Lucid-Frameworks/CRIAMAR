@@ -41,7 +41,6 @@ function AppContent() {
     sessionStorage.setItem("lastRoute", location.pathname); // Added
   }, [location]);
 
-
   return (
     <HelmetProvider>
       <ScrollToTop />
