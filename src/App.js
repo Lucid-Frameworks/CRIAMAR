@@ -13,8 +13,8 @@ const SentimentAnalysis = lazy(() => import("./pages/SentimentAnalysis"));
 const Contact = lazy(() => import("./pages/Contact"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
-const Terms = lazy(() => import("./pages/Terms")); // Added
-const Privacy = lazy(() => import("./pages/Privacy")); // Added
+const Terms = lazy(() => import("./pages/Terms"));
+const Privacy = lazy(() => import("./pages/Privacy"));
 
 const ProtectedRoute = ({ element }) => {
   const isAuthenticated = !!localStorage.getItem("authToken");
@@ -38,7 +38,7 @@ function AppContent() {
 
   useEffect(() => {
     console.log(`Navigated to: ${location.pathname}`);
-    sessionStorage.setItem("lastRoute", location.pathname); // Added
+    sessionStorage.setItem("lastRoute", location.pathname); // Improved session handling
   }, [location]);
 
   return (
@@ -54,8 +54,8 @@ function AppContent() {
               <Route path="/features" element={<Features />} />
               <Route path="/sentiment" element={<SentimentAnalysis />} />
               <Route path="/contact" element={<Contact />} />
-              <Route path="/terms" element={<Terms />} /> {/* Added */}
-              <Route path="/privacy" element={<Privacy />} /> {/* Added */}
+              <Route path="/terms" element={<Terms />} />
+              <Route path="/privacy" element={<Privacy />} />
               <Route path="/dashboard" element={<ProtectedRoute element={<Dashboard />} />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
