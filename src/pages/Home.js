@@ -35,7 +35,7 @@ export function Home({ stats = { analyzed: "350+", realtime: "24/7", users: "12K
       >
         <h2 className="text-2xl font-bold mb-4">Key Statistics</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-          <div className="p-4 bg-gray-800 rounded-md text-white">
+          <div className="p-4 bg-gray-800 rounded-md text-white" aria-label="Tokens Analyzed">
             <h3 className="text-xl">Tokens Analyzed</h3>
             <motion.p
               className="text-2xl"
@@ -46,15 +46,15 @@ export function Home({ stats = { analyzed: "350+", realtime: "24/7", users: "12K
               {stats.analyzed}
             </motion.p>
           </div>
-          <div className="p-4 bg-gray-800 rounded-md text-white">
+          <div className="p-4 bg-gray-800 rounded-md text-white" aria-label="Real-time Data">
             <h3 className="text-xl">Real-time Data</h3>
             <p className="text-2xl">{stats.realtime}</p>
           </div>
-          <div className="p-4 bg-gray-800 rounded-md text-white">
+          <div className="p-4 bg-gray-800 rounded-md text-white" aria-label="Active Users">
             <h3 className="text-xl">Active Users</h3>
             <p className="text-2xl">{stats.users}</p>
           </div>
-          <div className="p-4 bg-gray-800 rounded-md text-white">
+          <div className="p-4 bg-gray-800 rounded-md text-white" aria-label="Tokens Tracked">
             <h3 className="text-xl">Tokens Tracked</h3>
             <p className="text-2xl">{stats.tracked}</p>
           </div>
