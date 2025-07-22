@@ -4,37 +4,49 @@ export function SentimentAnalysis() {
   const [token, setToken] = useState("");
   const [sentiment, setSentiment] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null); // Added error state
+  const [error, setError] = useState<string | null>(null); 
+  const [retryCount, setRetryCount] = useState(0); // Added retry counter
 
   const analyzeSentiment = async () => {
     if (!token.trim()) {
-      setError("Please enter a token name to analyze."); // Input validation message
+      setError("Please enter a token name to analyze.");
       return;
     }
 
-    setError(null); // Clear any previous error
+    setError(null);
     setLoading(true);
     setSentiment(null);
+    setRetryCount(0);
 
-    try {
-      const trimmedToken = token.trim();
-      const response = await fetch(`https://api.example.com/sentiment?token=${encodeURIComponent(trimmedToken)}`);
-      if (!response.ok) {
-        throw new Error("Failed to fetch sentiment analysis");
+    const fetchSentiment = async (retries: number) => {
+      try {
+        const trimmedToken = token.trim();
+        const response = await fetch(`https://api.example.com/sentiment?token=${encodeURIComponent(trimmedToken)}`);
+        if (!response.ok) {
+          throw new Error("Failed to fetch sentiment analysis");
+        }
+        const data = await response.json();
+        setSentiment(data?.sentiment ?? "Unable to determine sentiment");
+      } catch (error) {
+        if (retries < 3) {
+          setRetryCount(retries + 1); // Increment retry count
+          setTimeout(() => fetchSentiment(retries + 1), 1000); // Retry after 1 second
+        } else {
+          setSentiment("Error fetching sentiment");
+        }
+      } finally {
+        setLoading(false);
       }
-      const data = await response.json();
-      setSentiment(data?.sentiment ?? "Unable to determine sentiment"); // Updated fallback
-    } catch (error) {
-      setSentiment("Error fetching sentiment");
-    } finally {
-      setLoading(false);
-    }
+    };
+
+    fetchSentiment(retryCount);
   };
 
   const resetAnalysis = () => {
     setToken("");
     setSentiment(null);
-    setError(null); // Reset error state
+    setError(null);
+    setRetryCount(0); // Reset retry count
   };
 
   const sentimentColors: Record<string, string> = {
@@ -48,7 +60,7 @@ export function SentimentAnalysis() {
     <div className="p-6 max-w-3xl mx-auto text-center">
       <h2 className="text-3xl font-bold mb-4">Real-Time Token Sentiment Analysis</h2>
 
-      {error && <p className="text-red-500">{error}</p>} {/* Display error message */}
+      {error && <p className="text-red-500">{error}</p>}
 
       <div className="flex justify-center gap-2">
         <input
@@ -67,10 +79,9 @@ export function SentimentAnalysis() {
           disabled={loading}
         >
           {loading ? (
-            <svg className="animate-spin h-5 w-5 mx-auto text-white" viewBox="0 0 24 24">
-              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
-            </svg>
+            <div className="h-5 w-5 mx-auto text-white">
+              <div className="animate-spin h-full w-full border-t-2 border-blue-500 rounded-full"></div>
+            </div>
           ) : "Analyze"}
         </button>
         <button
