@@ -21,5 +21,11 @@ module.exports = {
     // "postcss-color-function": process.env.NODE_ENV !== "production" ? {} : false,
     "cssnano": process.env.NODE_ENV === "production" ? {} : false,
     "postcss-discard-comments": process.env.NODE_ENV === "production" ? {} : false,
+
+    // New plugin for purging unused CSS
+    "postcss-purgecss": process.env.NODE_ENV === "production" ? {
+      content: ["./src/**/*.html", "./src/**/*.js", "./src/**/*.jsx", "./src/**/*.ts", "./src/**/*.tsx"],
+      defaultExtractor: content => content.match(/[\w-/:]+(?=\s*{)/g) || [],
+    } : false, // Only in production
   },
 };
