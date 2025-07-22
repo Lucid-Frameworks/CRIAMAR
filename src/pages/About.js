@@ -42,7 +42,20 @@ export function About() {
           Join the growing community of blockchain enthusiasts, investors, and developers using CRIAMAR to make smarter, data-driven decisions. Stay connected with us for updates and insights on the latest trends.
         </p>
       </details>
+
+      <section className="mt-8">
+        <h3 className="text-2xl font-bold">Platform Updates</h3>
+        <p className="mt-4 text-lg">
+          Stay updated with the latest features and improvements on CRIAMAR. We are constantly improving to bring you the best tools for your blockchain investment journey.
+        </p>
+      </section>
+
+      <section className="mt-8">
+        <h3 className="text-2xl font-bold">Feedback</h3>
+        <p className="mt-4 text-lg">
+          We value your feedback! Let us know how we can improve and what features you would like to see next.
+        </p>
+      </section>
     </div>
   );
 }
-  
