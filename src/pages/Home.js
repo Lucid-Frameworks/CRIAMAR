@@ -43,20 +43,20 @@ export function Home({ stats = { analyzed: "350+", realtime: "24/7", users: "12K
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
             >
-              350+
+              {stats.analyzed}
             </motion.p>
           </div>
           <div className="p-4 bg-gray-800 rounded-md text-white">
             <h3 className="text-xl">Real-time Data</h3>
-            <p className="text-2xl">24/7</p>
+            <p className="text-2xl">{stats.realtime}</p>
           </div>
           <div className="p-4 bg-gray-800 rounded-md text-white">
             <h3 className="text-xl">Active Users</h3>
-            <p className="text-2xl">12K+</p>
+            <p className="text-2xl">{stats.users}</p>
           </div>
           <div className="p-4 bg-gray-800 rounded-md text-white">
             <h3 className="text-xl">Tokens Tracked</h3>
-            <p className="text-2xl">200+</p>
+            <p className="text-2xl">{stats.tracked}</p>
           </div>
               <p className="mt-2 text-sm text-gray-400">
             Or scroll down to learn more about how CRIAMAR works.
