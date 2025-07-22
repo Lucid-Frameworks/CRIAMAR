@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
+import { debounce } from "lodash"; // Added lodash debounce
 
 export function SentimentAnalysis() {
   const [token, setToken] = useState("");
@@ -22,11 +23,14 @@ export function SentimentAnalysis() {
       const randomSentiment = sentiments[Math.floor(Math.random() * sentiments.length)];
       setSentiment(randomSentiment.charAt(0).toUpperCase() + randomSentiment.slice(1));
     } catch (err) {
-      setError("Error fetching sentiment.");
+      setError("Error fetching sentiment. Please try again.");
     } finally {
       setLoading(false);
     }
   };
+
+  // Debounced version of analyzeSentiment to prevent multiple calls while typing
+  const debouncedAnalyzeSentiment = useCallback(debounce(analyzeSentiment, 500), [token]);
 
   const sentimentColors = {
     Positive: "text-green-500",
@@ -41,7 +45,10 @@ export function SentimentAnalysis() {
         type="text"
         placeholder="Enter token name"
         value={token}
-        onChange={(e) => setToken(e.target.value)}
+        onChange={(e) => {
+          setToken(e.target.value);
+          debouncedAnalyzeSentiment(); // Call debounced function
+        }}
         onKeyDown={(e) => {
           if (e.key === "Enter" && !loading) analyzeSentiment();
         }}
@@ -76,4 +83,3 @@ export function SentimentAnalysis() {
     </div>
   );
 }
- 
