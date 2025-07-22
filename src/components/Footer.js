@@ -41,7 +41,7 @@ export function Footer() {
           <a
             href="mailto:contact@criamar.com"
             className="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 text-xs sm:text-sm"
-            aria-label="Email us"
+            aria-label="Email us for partnerships"
           >
             ✉️ Email Us for Partnerships
           </a>
