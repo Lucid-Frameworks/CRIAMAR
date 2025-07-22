@@ -45,3 +45,4 @@ export function Features({ features = defaultFeatureList }) {
     </div>
   );
 }
+  
