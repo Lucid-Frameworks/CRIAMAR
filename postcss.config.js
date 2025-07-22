@@ -6,7 +6,7 @@ module.exports = {
 
     // Features & syntax sugar
     "postcss-extend-rule": {},
-    "postcss-import": {},
+    "postcss-import": {}, // Added postcss-import
     "postcss-nested": {},
     "postcss-rtlcss": {},
     "postcss-sort-media-queries": {},
@@ -14,7 +14,7 @@ module.exports = {
     "postcss-custom-properties": {},
     "postcss-flexbugs-fixes": {},
     "postcss-preset-env": {
-      stage: 1,
+      stage: 2, // Changed stage to 2 for more features
     },
 
     // Conditionally loaded based on environment
